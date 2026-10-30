@@ -2,7 +2,6 @@
     <string name="app_name">Chinese Municipalities</string>
     <string name="main_title">Municipalities in China</string>
     <string name="input_label">I want to know about:</string>
-    <string name="input_hint">Name of a municipality</string>
     <string name="map_description">Map of the four municipalities in China</string>
     <string name="city_image_description">Photo of %1$s</string>
     <string name="visit_site">Visit site</string>
