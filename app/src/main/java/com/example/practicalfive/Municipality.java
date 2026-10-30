@@ -1,6 +1,9 @@
 package com.example.practicalfive;
 
 import android.os.Bundle;
+import android.content.res.ColorStateList;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,7 +37,56 @@ public class Municipality extends AppCompatActivity {
             return;
         }
 
+        showMunicipality(name);
+    }
+
+    private void showMunicipality(String name) {
+        int textIndex;
+        int imageId;
+        int colourId;
+
+        if (name.equals("Beijing")) {
+            textIndex = 0;
+            imageId = R.drawable.beijing;
+            colourId = R.color.municipality_beijing;
+        } else if (name.equals("Shanghai")) {
+            textIndex = 1;
+            imageId = R.drawable.shanghai;
+            colourId = R.color.municipality_shanghai;
+        } else if (name.equals("Chongqing")) {
+            textIndex = 2;
+            imageId = R.drawable.chongqing;
+            colourId = R.color.municipality_chongqing;
+        } else {
+            textIndex = 3;
+            imageId = R.drawable.tianjin;
+            colourId = R.color.municipality_tianjin;
+        }
+
+        int colour = getResources().getColor(colourId, getTheme());
+        int light = getResources().getColor(R.color.color_text_light, getTheme());
+        int dark = getResources().getColor(R.color.color_text_dark, getTheme());
+        int labelColour = light;
+        if (name.equals("Chongqing")) {
+            labelColour = dark;
+        }
+
         TextView title = findViewById(R.id.municipality_name);
+        ImageView image = findViewById(R.id.municipality_image);
+        TextView info = findViewById(R.id.municipality_info);
+        Button visitSite = findViewById(R.id.visit_site);
+
         title.setText(name);
+        title.setBackgroundColor(colour);
+        title.setTextColor(labelColour);
+        image.setImageResource(imageId);
+        image.setContentDescription(getString(R.string.city_image_description, name));
+        info.setText(getResources().getStringArray(R.array.municipalities_array)[textIndex]);
+        info.setTextColor(colour);
+        if (name.equals("Chongqing")) {
+            info.setBackgroundColor(dark);
+        }
+        visitSite.setBackgroundTintList(ColorStateList.valueOf(colour));
+        visitSite.setTextColor(labelColour);
     }
 }
