@@ -35,9 +35,11 @@ public class MainActivity extends AppCompatActivity {
             public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_GO
                         || actionId == EditorInfo.IME_ACTION_DONE
-                        || (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER
-                        && event.getAction() == KeyEvent.ACTION_DOWN)) {
-                    openMunicipality();
+                        || (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
+                    if (event == null || (event.getAction() == KeyEvent.ACTION_DOWN
+                            && event.getRepeatCount() == 0)) {
+                        openMunicipality();
+                    }
                     return true;
                 }
                 return false;
