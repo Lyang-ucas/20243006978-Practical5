@@ -33,6 +33,8 @@ The photos and launcher logo come from the practical resources. The map was conv
 
 The app was checked on the Pixel 10 Pro XL emulator. The four city screens show the matching photos, introductions and colours. The input box stays above the keyboard. One Enter press opens one city screen. Each Visit site button passes the matching official URL to the browser. A browser and an internet connection are needed to load the websites.
 
+The suggested Chongqing address did not load during the checks. Its button uses [iChongqing](https://www.ichongqing.info/), Chongqing's official international information website. The [city government's service plan](https://cq.gov.cn/zwgk/zfxxgkml/szfwj/qtgw/202607/t20260710_15814399.html) also refers to this website.
+
 ## Sources for the introductions
 
 - Beijing: [City overview](https://www.beijing.gov.cn/renwen/bjgk/) and [places to visit](https://english.beijing.gov.cn/travellinginbeijing/mustvisitsites/).
