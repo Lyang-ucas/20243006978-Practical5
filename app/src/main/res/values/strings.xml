@@ -9,4 +9,8 @@
     <string name="input_error">Enter Beijing, Shanghai, Tianjin or Chongqing.</string>
     <string name="missing_city">No valid municipality was selected.</string>
     <string name="no_browser">No app is available to open this website.</string>
+    <string name="url_beijing" translatable="false">https://english.beijing.gov.cn/</string>
+    <string name="url_shanghai" translatable="false">https://english.shanghai.gov.cn/</string>
+    <string name="url_chongqing" translatable="false">https://english.cq.gov.cn/</string>
+    <string name="url_tianjin" translatable="false">https://en.tj.gov.cn/</string>
 </resources>

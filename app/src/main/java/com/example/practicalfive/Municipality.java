@@ -1,7 +1,11 @@
 package com.example.practicalfive;
 
-import android.os.Bundle;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,6 +20,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class Municipality extends AppCompatActivity {
 
     public static final String EXTRA_MUNICIPALITY = "municipality";
+    private String website;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,18 +54,22 @@ public class Municipality extends AppCompatActivity {
             textIndex = 0;
             imageId = R.drawable.beijing;
             colourId = R.color.municipality_beijing;
+            website = getString(R.string.url_beijing);
         } else if (name.equals("Shanghai")) {
             textIndex = 1;
             imageId = R.drawable.shanghai;
             colourId = R.color.municipality_shanghai;
+            website = getString(R.string.url_shanghai);
         } else if (name.equals("Chongqing")) {
             textIndex = 2;
             imageId = R.drawable.chongqing;
             colourId = R.color.municipality_chongqing;
+            website = getString(R.string.url_chongqing);
         } else {
             textIndex = 3;
             imageId = R.drawable.tianjin;
             colourId = R.color.municipality_tianjin;
+            website = getString(R.string.url_tianjin);
         }
 
         int colour = getResources().getColor(colourId, getTheme());
@@ -88,5 +97,17 @@ public class Municipality extends AppCompatActivity {
         }
         visitSite.setBackgroundTintList(ColorStateList.valueOf(colour));
         visitSite.setTextColor(labelColour);
+        visitSite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(website));
+                try {
+                    startActivity(intent);
+                } catch (ActivityNotFoundException exception) {
+                    Toast.makeText(Municipality.this, R.string.no_browser,
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }
